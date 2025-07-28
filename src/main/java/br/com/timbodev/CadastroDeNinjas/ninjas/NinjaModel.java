@@ -2,9 +2,17 @@ package br.com.timbodev.CadastroDeNinjas.ninjas;
 
 import br.com.timbodev.CadastroDeNinjas.missoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Columns;
 
 @Entity
 @Table(name = "tb_ninja")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,28 +24,4 @@ public class NinjaModel {
     @ManyToOne
     @JoinColumn(name = "missoes_id")
     private MissoesModel missao;
-
-    public NinjaModel() {
-    }
-
-    public NinjaModel(String nome, String email) {
-        this.nome = nome;
-        this.email = email;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setName(String nome) {
-        this.nome = nome;
-    }
 }
