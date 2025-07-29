@@ -16,11 +16,17 @@ import org.hibernate.annotations.Columns;
 public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "nome")
     private String nome;
 
-    @Column(unique = true)
+    @Column(name = "email", unique = true)
     private String email;
+
+    @Column(name = "img")
+    private String imgUrl;
 
     //um ninja so pode ter uma missao
     @ManyToOne
